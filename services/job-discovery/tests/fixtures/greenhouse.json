@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "id": 1001,
+      "title": "Senior Software Engineer",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/1001?utm_source=board",
+      "updated_at": "2026-07-01T00:00:00Z",
+      "location": { "name": "Remote - United States" },
+      "content": "Build TypeScript and React systems."
+    },
+    {
+      "id": 1002,
+      "title": "Junior Marketing Intern",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/1002",
+      "location": { "name": "New York, NY" },
+      "content": "Intern role"
+    }
+  ]
+}

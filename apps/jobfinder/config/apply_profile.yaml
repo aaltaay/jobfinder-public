@@ -1,0 +1,50 @@
+# Guided-apply demo profile.
+identity:
+  first_name: Jane
+  last_name: Demo
+  full_name: Jane Demo
+  email: jane.demo@example.com
+  phone: "+1 (555) 010-0200"
+  phone_e164: "+15550100200"
+  city: Demo City
+  state: TX
+  state_full: Texas
+  country: United States
+  country_code: US
+  location: Demo City, TX
+  postal_code: ""
+
+links:
+  linkedin: ""
+  github: "https://github.com/jane-demo"
+  portfolio: ""
+  resume_path: "/path/to/demo-resume.pdf"
+
+work:
+  years_experience: 7
+  current_company: Demo HVAC Co
+  current_title: Senior Software Engineer
+  notice_period: "2 weeks"
+  willing_to_relocate: false
+  remote_preference: "Remote US"
+  work_authorization: "Authorized to work in the United States"
+  require_sponsorship: false
+  earliest_start: "2 weeks"
+
+compensation:
+  target_min: null
+  currency: USD
+  open_to_discuss: true
+
+defaults:
+  over_18: true
+  willing_background_check: true
+  willing_drug_test: true
+  previously_employed_here: false
+  related_to_employee: false
+
+policy:
+  min_fit_band_to_assist: strong
+  never_click_submit: true
+  never_upload_without_confirm: true
+  max_auto_filled_fields_per_session: 40

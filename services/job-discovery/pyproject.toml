@@ -1,0 +1,31 @@
+[project]
+name = "job-discovery"
+version = "1.0.0"
+description = "Scheduled public ATS/feed collectors for Job Finder"
+requires-python = ">=3.12"
+dependencies = [
+  "httpx>=0.28.0",
+  "pydantic>=2.10.0",
+  "PyYAML>=6.0.2",
+]
+
+[project.scripts]
+job-discovery = "job_discovery.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/job_discovery"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.24", "respx>=0.21"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/job_discovery" = "job_discovery"

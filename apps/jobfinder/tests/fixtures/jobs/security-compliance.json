@@ -1,0 +1,12 @@
+{
+  "id": "job-security-compliance",
+  "title": "Platform Security Engineer",
+  "company": "Example Secure Systems",
+  "description": "Requirements:\n- Required: experience with database design and SQL in regulated environments.\n- Security clearance required for this role.\nResponsibilities:\n- Support compliance and audit workflows for connected products.\nPreferred:\n- HIPAA experience is a plus.",
+  "terms": [
+    { "term": "SQL", "bucket": "must_have" },
+    { "term": "clearance", "bucket": "must_have" },
+    { "term": "compliance", "bucket": "responsibility" },
+    { "term": "HIPAA", "bucket": "preferred" }
+  ]
+}

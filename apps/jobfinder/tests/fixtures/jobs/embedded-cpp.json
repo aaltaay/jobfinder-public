@@ -1,0 +1,12 @@
+{
+  "id": "job-embedded-cpp",
+  "title": "Senior Embedded Software Engineer",
+  "company": "Example Controls",
+  "description": "Seeking C/C++ engineer for HVAC and industrial controls. Experience with Modbus, BACnet, HiL testing, Python tooling, and CI/CD required. Preferred: Docker, requirements traceability.",
+  "terms": [
+    { "term": "C++", "bucket": "must_have" },
+    { "term": "Modbus", "bucket": "must_have" },
+    { "term": "HiL", "bucket": "responsibility" },
+    { "term": "Docker", "bucket": "preferred" }
+  ]
+}

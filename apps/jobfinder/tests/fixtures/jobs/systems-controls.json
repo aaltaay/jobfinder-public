@@ -1,0 +1,12 @@
+{
+  "id": "job-systems-controls",
+  "title": "Systems Controls Engineer",
+  "company": "Example Systems",
+  "description": "Controls software for connected products. C, embedded controls, PLC integration (Siemens, Rockwell), test plans, Agile/Scrum.",
+  "terms": [
+    { "term": "embedded", "bucket": "must_have" },
+    { "term": "Siemens", "bucket": "must_have" },
+    { "term": "test", "bucket": "responsibility" },
+    { "term": "Agile", "bucket": "preferred" }
+  ]
+}

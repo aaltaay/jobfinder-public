@@ -1,0 +1,403 @@
+{
+  "_provenance": {
+    "listing_id": "00000000-0000-4000-8000-000000000001",
+    "revision_id": "00000000-0000-4000-8000-000000000002",
+    "document_id": "00000000-0000-4000-8000-000000000003",
+    "label": "Principal Software Engineer \u00b7 Platform Team \u00b7 Example Corp \u00b7 2026-07-19 20:05",
+    "company": "Example Corp",
+    "title": "Principal Software Engineer \u00b7 Platform Team",
+    "created_at": "2026-07-19T20:05:20.9114+00:00",
+    "status": "superseded",
+    "revision_source": "tailor",
+    "source": "db",
+    "project_ref": "your-supabase-project-ref",
+    "schema": "schema_jobfinder",
+    "table": "resume_document_revisions",
+    "captured_at": "2026-07-19T20:37:47Z",
+    "redactions": [
+      "identity.phone",
+      "identity.email"
+    ],
+    "note": "OP-0: synthetic overflow fixture document_json (no experience edits). Under shipped/HEAD PDF packing (pad 40/48, font 10.5, wrap=false roles) measures 2 LETTER pages; densify packing in working tree currently fits 1 page. Compose fix = OP-B.",
+    "page_counts_at_capture": {
+      "shipped_baseline_packing": 2,
+      "densify_normal": 1,
+      "densify_tight": 1
+    }
+  },
+  "document_json": {
+    "facts": [
+      {
+        "id": "f-carrier-cpp",
+        "kind": "bullet",
+        "text": "C++ HVAC controls + database tooling full lifecycle"
+      },
+      {
+        "id": "f-carrier-python",
+        "kind": "bullet",
+        "text": "Python HiL, commissioning automation, and engineering tooling"
+      },
+      {
+        "id": "f-carrier-arch",
+        "kind": "bullet",
+        "text": "De facto architect; pipelines and workflows"
+      },
+      {
+        "id": "f-carrier-reqs",
+        "kind": "bullet",
+        "text": "Design docs and requirements walkthroughs"
+      },
+      {
+        "id": "f-carrier-collab",
+        "kind": "bullet",
+        "text": "Global engineering collaboration"
+      },
+      {
+        "id": "f-carrier-sustain",
+        "kind": "bullet",
+        "text": "Sustaining / triage workflows"
+      },
+      {
+        "id": "f-metric-6h",
+        "kind": "metric",
+        "text": "Eliminated ~6 hours/week",
+        "metric": "6 hours"
+      },
+      {
+        "id": "f-metric-20eng",
+        "kind": "metric",
+        "text": "20+ engineers impacted",
+        "metric": "20+"
+      },
+      {
+        "id": "f-metric-60",
+        "kind": "metric",
+        "text": "60% commissioning time reduction",
+        "metric": "60%"
+      },
+      {
+        "id": "f-carrier-reqs-platform",
+        "kind": "project",
+        "text": "Requirements management platform"
+      },
+      {
+        "id": "f-metric-95",
+        "kind": "metric",
+        "text": "95% test setup time cut",
+        "metric": "95%"
+      },
+      {
+        "id": "f-scan-ble",
+        "kind": "bullet",
+        "text": "BLE indoor positioning APIs"
+      },
+      {
+        "id": "f-scan-infra",
+        "kind": "bullet",
+        "text": "Infrastructure migration"
+      },
+      {
+        "id": "f-scan-test",
+        "kind": "bullet",
+        "text": "Company-wide test suites"
+      },
+      {
+        "id": "f-unc-ta",
+        "kind": "bullet",
+        "text": "Demo University TA"
+      },
+      {
+        "id": "f-ati-plc",
+        "kind": "bullet",
+        "text": "PLC C# / Modbus API"
+      },
+      {
+        "id": "f-skill-plc-tools",
+        "kind": "skill",
+        "text": "PLC tools: Siemens, Rockwell, Danfoss, Allen-Bradley"
+      },
+      {
+        "id": "f-skill-git-flask",
+        "kind": "skill",
+        "text": "Git, Flask, Docker tooling"
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-carrier",
+        "end": "Present",
+        "start": "2019",
+        "title": "Software Engineering",
+        "bullets": [
+          {
+            "id": "b-carrier-2",
+            "text": "Serve as de facto software architect for the team: redesigned system architectures, data pipelines, and build/release workflows now adopted as standard practice across several projects.",
+            "source_fact_ids": [
+              "f-carrier-arch"
+            ]
+          },
+          {
+            "id": "b-carrier-1",
+            "text": "Design, develop, test, and release production software in Python and C++ for connected HVAC controls\u2014owning embedded product features and the automation tooling around them through the full software development lifecycle.",
+            "source_fact_ids": [
+              "f-carrier-cpp",
+              "f-carrier-python"
+            ]
+          },
+          {
+            "id": "b-carrier-4",
+            "text": "Collaborate with globally distributed engineering teams to align software and controls design across product lines.",
+            "source_fact_ids": [
+              "f-carrier-collab"
+            ]
+          },
+          {
+            "id": "b-carrier-5",
+            "text": "Support sustaining product development for deployed products: streamlined issue reporting and triage workflows, enabling faster resolution of customer-reported issues and improving customer satisfaction.",
+            "source_fact_ids": [
+              "f-carrier-sustain"
+            ]
+          },
+          {
+            "id": "b-carrier-3",
+            "text": "Author software design documents, test plans, procedures, and reports; drive gathering of functional and non-functional requirements and conduct customer walkthroughs to keep programs on schedule.",
+            "source_fact_ids": [
+              "f-carrier-reqs"
+            ]
+          }
+        ],
+        "company": "Demo HVAC Co",
+        "projects": [
+          {
+            "id": "p-hil",
+            "name": "Virtual HiL Environment",
+            "tech": [
+              "Python",
+              "HiL"
+            ],
+            "bullets": [
+              {
+                "id": "b-p-hil",
+                "text": "Created a Python-based virtual hardware-in-the-loop system enabling hardware verification without physical test rigs, cutting test setup time by 95%.",
+                "source_fact_ids": [
+                  "f-metric-95",
+                  "f-carrier-python"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p-test",
+            "name": "Engineering Test & Commissioning Suite",
+            "tech": [
+              "Python",
+              "automation"
+            ],
+            "bullets": [
+              {
+                "id": "b-p-test",
+                "text": "Designed and built a Python testing suite that automates commissioning workflows and application/fault detection, reducing commissioning and verification time by 60%.",
+                "source_fact_ids": [
+                  "f-metric-60",
+                  "f-carrier-python"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p-db",
+            "name": "Database Tool Modernization",
+            "tech": [
+              "C++",
+              "SQL",
+              "data pipelines"
+            ],
+            "bullets": [
+              {
+                "id": "b-p-db",
+                "text": "Initiated and architected a ground-up recreation of the team's core database tool in C++, redesigning the data model and processing pipeline; eliminated ~6 hours of manual work per week for 20+ engineers.",
+                "source_fact_ids": [
+                  "f-metric-6h",
+                  "f-metric-20eng",
+                  "f-carrier-cpp"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p-reqs",
+            "name": "Requirements Management Platform",
+            "tech": [
+              "traceability"
+            ],
+            "bullets": [
+              {
+                "id": "b-p-reqs",
+                "text": "Initiated and architected requirements management software providing end-to-end traceability from specification through verification, replacing a manual process across multiple teams.",
+                "source_fact_ids": [
+                  "f-carrier-reqs-platform"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "role-scan",
+        "end": "2018",
+        "start": "2017",
+        "title": "Research & Development Associate",
+        "bullets": [
+          {
+            "id": "b-scan-1",
+            "text": "Designed APIs scanning Bluetooth Low Energy signals for an indoor positioning system; implemented and deployed services using Node.js, Flask, Docker, and Python.",
+            "source_fact_ids": [
+              "f-scan-ble"
+            ]
+          },
+          {
+            "id": "b-scan-2",
+            "text": "Architected and implemented traditional and converged infrastructure; defined the migration strategy from legacy platforms to the target technical architecture.",
+            "source_fact_ids": [
+              "f-scan-infra"
+            ]
+          },
+          {
+            "id": "b-scan-3",
+            "text": "Created functional, regression, and system test suites still in company-wide use.",
+            "source_fact_ids": [
+              "f-scan-test"
+            ]
+          }
+        ],
+        "company": "Demo Scan",
+        "projects": []
+      },
+      {
+        "id": "role-unc",
+        "end": "2018",
+        "start": "2018",
+        "title": "Teaching Assistant, Software Engineering",
+        "bullets": [
+          {
+            "id": "b-unc-1",
+            "text": "Led weekly labs and office hours for software engineering courses; graded projects and exams and contributed to course and curriculum revisions.",
+            "source_fact_ids": [
+              "f-unc-ta"
+            ]
+          }
+        ],
+        "company": "Demo University",
+        "projects": []
+      },
+      {
+        "id": "role-ati",
+        "end": "2017",
+        "start": "2017",
+        "title": "Manufacturing Engineering Systems Associate",
+        "bullets": [
+          {
+            "id": "b-ati-1",
+            "text": "Redesigned a C# application exchanging data with programmable logic controllers; built an API for Siemens, Rockwell, and Modbus TCP PLCs and reworked the SQL database layer.",
+            "source_fact_ids": [
+              "f-ati-plc"
+            ]
+          }
+        ],
+        "company": "Demo Metals",
+        "projects": []
+      }
+    ],
+    "summary": "I build production software in Python and C++ for connected HVAC controls, automation, and hardware-in-the-loop (HiL) verification. With 7+ years at Demo HVAC Co, I have delivered Python automation systems, C++ engineering tools, embedded software, data pipelines, and requirements-to-verification platforms\u2014including a virtual HiL environment that reduced test setup time by 95%. I bring a software-engineering focus to system architecture, testing, commissioning, release automation, and platform/provisioning pipelines, with additional experience in Docker, CI/CD, APIs, and AI-enabled services.",
+    "version": 1,
+    "identity": {
+      "name": "Jane Demo",
+      "email": "[redacted]",
+      "links": [
+        {
+          "url": "https://github.com/jane-demo",
+          "label": "GitHub"
+        }
+      ],
+      "phone": "[redacted]",
+      "location": "Austin, TX"
+    },
+    "education": [
+      {
+        "id": "edu-unc",
+        "degree": "Bachelor of Science in Computer Science",
+        "school": "Demo University",
+        "details": "Dean's List and Chancellor's List"
+      }
+    ],
+    "skill_groups": [
+      {
+        "id": "sg-lang",
+        "items": [
+          "Python",
+          "C++",
+          "platform/provisioning pipelines",
+          "GitHub Actions",
+          "FastAPI",
+          "Postgres + RLS",
+          "RAG",
+          "vector search (Pinecone)",
+          "LLM APIs (Gemini)",
+          "rate-limited service design",
+          "embedding pipelines",
+          "Git, Flask, Docker tooling",
+          "aws",
+          "C",
+          "C#",
+          "SQL",
+          "TypeScript",
+          "JavaScript (Node.js)"
+        ],
+        "label": "Languages"
+      },
+      {
+        "id": "sg-arch",
+        "items": [
+          "System architecture design",
+          "CI/CD pipelines",
+          "API design",
+          "embedded controls",
+          "hardware-in-the-loop (HiL) testing",
+          "database design",
+          "cloud migration"
+        ],
+        "label": "Architecture & Systems"
+      },
+      {
+        "id": "sg-tools",
+        "items": [
+          "Docker",
+          "Git",
+          "Flask",
+          "Node.js",
+          "Siemens PLC",
+          "Rockwell",
+          "Danfoss",
+          "Allen-Bradley",
+          "Modbus",
+          "BACnet",
+          "CAN",
+          "CCN"
+        ],
+        "label": "Tools & Platforms"
+      },
+      {
+        "id": "sg-prac",
+        "items": [
+          "Agile/Scrum",
+          "DevOps",
+          "requirements engineering",
+          "test plan design & execution",
+          "technical documentation",
+          "HCI/UX design"
+        ],
+        "label": "Practices"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+---
+description: Route agent creation through scale/AGENT_CREATION.md — never hand-write agents
+alwaysApply: true
+---
+
+# Create agent (Job Finder)
+
+When the user asks to **create, add, scaffold, or register** an agent under Job Finder:
+
+1. Read `apps/jobfinder/scale/AGENT_CREATION.md` first (source of truth).
+2. Complete every step in `apps/jobfinder/scale/checklists/new-agent.md`.
+3. Use `py -3 tools/create_agent.py` from `apps/jobfinder` (dry-run default; `--write` only when clean).
+4. Do **not** hand-write agents outside the scaffolder.
+5. Do **not** place memory files under `.cursor/agents/`.
+6. Validate with `py -3 tools/agent_contract.py --ci` before calling the agent installed.
+
+Principles: `scale/PRINCIPLES.md`. Parallel membership: `scale/PARALLEL_RULES.md`.

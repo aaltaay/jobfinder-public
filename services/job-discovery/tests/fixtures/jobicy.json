@@ -1,0 +1,33 @@
+{
+  "apiVersion": "2.0",
+  "jobCount": 2,
+  "jobs": [
+    {
+      "id": 146924,
+      "url": "https://jobicy.com/jobs/146924-senior-software-engineer-acme",
+      "jobTitle": "Senior Software Engineer",
+      "companyName": "Acme",
+      "jobIndustry": ["Software Development"],
+      "jobType": ["Full-Time"],
+      "jobGeo": "USA",
+      "jobLevel": "Senior",
+      "jobDescription": "Build TypeScript and React systems.",
+      "pubDate": "2026-07-18T02:25:10+00:00",
+      "salaryMin": 140000,
+      "salaryMax": 180000,
+      "salaryCurrency": "USD"
+    },
+    {
+      "id": 146925,
+      "url": "https://jobicy.com/jobs/146925-junior-marketing-intern-acme",
+      "jobTitle": "Junior Marketing Intern",
+      "companyName": "Acme",
+      "jobIndustry": ["Marketing"],
+      "jobType": ["Internship"],
+      "jobGeo": "Worldwide",
+      "jobLevel": "Entry",
+      "jobDescription": "Intern role",
+      "pubDate": "2026-07-18T02:25:10+00:00"
+    }
+  ]
+}

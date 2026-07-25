@@ -1,0 +1,40 @@
+# Boards known to expose public APIs (verified 2026-07)
+greenhouse:
+  - gitlab
+  - cloudflare
+  - figma
+  - airbnb
+  - stripe
+
+lever:
+  - netflix
+
+ashby:
+  - openai
+  - anthropic
+
+smartrecruiters:
+  - visa
+
+workable:
+  - huggingface
+
+recruitee:
+  - veocareers
+
+teamtailor:
+  - polestar
+
+workday:
+  - tenant: nvidia
+    wd: wd5
+    site: NVIDIAExternalCareerSite
+
+feeds:
+  remoteok: true
+  remotive: true
+  arbeitnow: true
+  themuse: true
+  jobicy: true
+  adzuna: true
+  hn_whoishiring: false

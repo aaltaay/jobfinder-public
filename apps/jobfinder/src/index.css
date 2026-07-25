@@ -1,0 +1,408 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui,
+    sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Studio Minimal — Apple-like product UI (shadcn CSS variables) */
+:root {
+  --radius: 0.75rem;
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  --muted: #ececef;
+  --muted-foreground: #86868b;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: #ececef;
+  --ring: rgba(29, 29, 31, 0.35);
+  --primary: #1d1d1f;
+  --primary-foreground: #f5f5f7;
+  --secondary: #e8e8ed;
+  --secondary-foreground: #1d1d1f;
+  --accent: #e8e8ed;
+  --accent-foreground: #1d1d1f;
+  --destructive: #ff3b30;
+  --score-high: #34c759;
+  --score-mid: #ff9f0a;
+  --score-low: #86868b;
+  --posted-stale: #ff6900;
+  --posted-old: #ff3b30;
+  --hairline: rgba(0, 0, 0, 0.08);
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Shared page template (Inbox / Resume / Settings) — align with AppShell rail */
+  --jf-shell-max: 1400px;
+  --jf-narrow-max: 42rem;
+  --jf-page-x: 1rem;
+  --jf-page-y: 2rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --jf-page-x: 1.5rem;
+    --jf-page-y: 2.5rem;
+  }
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --card: #1c1c1e;
+  --card-foreground: #f5f5f7;
+  --popover: #1c1c1e;
+  --popover-foreground: #f5f5f7;
+  --muted: #2c2c2e;
+  --muted-foreground: #98989d;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: #2c2c2e;
+  --ring: rgba(245, 245, 247, 0.35);
+  --primary: #f5f5f7;
+  --primary-foreground: #1d1d1f;
+  --secondary: #2c2c2e;
+  --secondary-foreground: #f5f5f7;
+  --accent: #2c2c2e;
+  --accent-foreground: #f5f5f7;
+  --destructive: #ff453a;
+  --score-high: #30d158;
+  --score-mid: #ffd60a;
+  --score-low: #98989d;
+  --posted-stale: #ff9f0a;
+  --posted-old: #ff453a;
+  --hairline: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Passive status near the action (Apple HIG Feedback) */
+.jf-flash {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+  color: var(--score-high);
+  line-height: 1.4;
+}
+
+.jf-page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .jf-page-title {
+    font-size: 2rem;
+  }
+}
+
+.jf-page-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+}
+
+/* PageShell — one template for all authenticated routes */
+.jf-page-shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--jf-page-x);
+  padding-block: var(--jf-page-y);
+  box-sizing: border-box;
+}
+
+.jf-page-shell--wide {
+  max-width: var(--jf-shell-max);
+}
+
+.jf-page-shell--narrow {
+  max-width: var(--jf-narrow-max);
+}
+
+.jf-page-shell--bleed {
+  max-width: var(--jf-shell-max);
+  padding-inline: 0;
+}
+
+/* Inbox master–detail: fill AppShell main, clip document scroll; panes scroll independently */
+.jf-page-shell--flush-y {
+  padding-block: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.jf-page-band {
+  padding-block: var(--jf-page-y);
+}
+
+.jf-shell-rail {
+  max-width: var(--jf-shell-max);
+  margin-inline: auto;
+  padding-inline: var(--jf-page-x);
+}
+
+/* Fit band — quiet, not pill-candy */
+.fit-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.fit-band-exceptional {
+  color: var(--score-high);
+}
+
+.fit-band-strong {
+  color: var(--foreground);
+}
+
+.fit-band-fair {
+  color: var(--score-mid);
+}
+
+.fit-band-weak {
+  color: var(--muted-foreground);
+}
+
+/* Job description */
+.job-description-panel {
+  margin-top: 0.75rem;
+  clear: both;
+}
+
+.job-description-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.job-description {
+  display: block;
+  max-height: min(52vh, 36rem);
+  overflow: auto;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+  box-shadow: none;
+  padding-top: 1.25rem;
+  scrollbar-width: thin;
+}
+
+.job-description-empty {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.job-description-p {
+  display: block;
+  margin: 0 0 1.1em;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.job-description-h {
+  margin: 1.35em 0 0.45em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  line-height: 1.4;
+}
+
+.job-description-h:first-child {
+  margin-top: 0;
+}
+
+.job-description-p:last-child {
+  margin-bottom: 0;
+}
+
+/* Living résumé document */
+.resume-doc {
+  background: var(--card);
+}
+
+.resume-doc .resume-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-doc h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.resume-doc .resume-contact {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+.resume-doc h2 {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin: 1.75rem 0 0.65rem;
+}
+
+.resume-doc h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 1.1rem 0 0.15rem;
+}
+
+.resume-doc h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0.85rem 0 0.35rem;
+  color: var(--muted-foreground);
+}
+
+.resume-doc .resume-dates {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.resume-doc p {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.resume-doc ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.15rem;
+}
+
+.resume-doc li {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Denser single-column Skills — match PDF one-page target */
+.resume-doc .resume-skills {
+  margin: 0 0 0.35rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.resume-doc .resume-skills .resume-skill {
+  margin: 0 0 0.1rem;
+  font-size: 0.8125rem;
+  line-height: 1.28;
+}
+
+.resume-doc .resume-skills .resume-skill strong {
+  font-weight: 700;
+}
+
+.resume-doc .resume-role {
+  margin-bottom: 1.25rem;
+}
+
+/* Visual editor: keep native selection; soft focus on sections */
+.resume-doc--editing ::selection {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.resume-doc--editing section:focus-within,
+.resume-doc--editing .resume-role:focus-within {
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

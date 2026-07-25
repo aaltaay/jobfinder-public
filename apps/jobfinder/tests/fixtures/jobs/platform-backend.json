@@ -1,0 +1,12 @@
+{
+  "id": "job-platform-backend",
+  "title": "Platform Backend Engineer",
+  "company": "Example Platform",
+  "description": "Build APIs and data pipelines. Python, SQL, Node.js, Docker, cloud migration. Experience owning CI/CD and database design.",
+  "terms": [
+    { "term": "Python", "bucket": "must_have" },
+    { "term": "SQL", "bucket": "must_have" },
+    { "term": "Docker", "bucket": "responsibility" },
+    { "term": "API", "bucket": "preferred" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "job-missing-fact",
+  "title": "Indoor Positioning Systems Engineer",
+  "company": "Example Location Co",
+  "description": "Requirements:\n- Required: experience designing APIs that scan Bluetooth Low Energy (BLE) signals for indoor positioning systems.\n- Node.js and Flask experience required.\nResponsibilities:\n- Deploy and maintain BLE-based location services.\nPreferred:\n- Docker experience is a plus.",
+  "terms": [
+    { "term": "BLE", "bucket": "must_have" },
+    { "term": "Flask", "bucket": "must_have" },
+    { "term": "indoor positioning", "bucket": "responsibility" },
+    { "term": "Docker", "bucket": "preferred" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "job-ci-infrastructure",
+  "title": "CI/CD Infrastructure Engineer",
+  "company": "Example Pipelines",
+  "description": "Requirements:\n- Own our CI/CD pipelines and release engineering workflows.\n- Strong Docker and build-pipeline experience.\n- SQL and database design experience.\nResponsibilities:\n- Improve build/release automation and requirements traceability across teams.\nPreferred:\n- Kubernetes experience is a plus.",
+  "terms": [
+    { "term": "CI/CD", "bucket": "must_have" },
+    { "term": "Docker", "bucket": "must_have" },
+    { "term": "SQL", "bucket": "responsibility" },
+    { "term": "Kubernetes", "bucket": "preferred" }
+  ]
+}

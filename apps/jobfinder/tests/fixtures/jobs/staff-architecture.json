@@ -1,0 +1,12 @@
+{
+  "id": "job-staff-architecture",
+  "title": "Staff Software Architect",
+  "company": "Example Platform Co",
+  "description": "Minimum Qualifications:\n- Required: 8+ years of experience, including serving as de facto architect for a software team.\n- Required: system architecture design and API design experience.\nResponsibilities:\n- Redesign data pipelines and build/release workflows adopted across multiple teams.\nPreferred:\n- Requirements traceability experience is a plus.",
+  "terms": [
+    { "term": "architecture", "bucket": "must_have" },
+    { "term": "API design", "bucket": "must_have" },
+    { "term": "data pipelines", "bucket": "responsibility" },
+    { "term": "traceability", "bucket": "preferred" }
+  ]
+}

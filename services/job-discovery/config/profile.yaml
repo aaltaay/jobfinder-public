@@ -1,0 +1,43 @@
+titles:
+  - Senior Software Engineer
+  - Senior Full Stack Engineer
+  - Senior Backend Engineer
+  - Senior Platform Engineer
+  - Software Engineer III
+  - Lead Software Engineer
+  - Staff Software Engineer
+  - Senior React Developer
+  - Senior TypeScript Engineer
+  - Senior Python Engineer
+  - Senior C++ Engineer
+  - Systems Software Engineer
+  - Embedded Software Engineer
+  - Developer Tools Engineer
+
+include_keywords:
+  - react
+  - typescript
+  - python
+  - c++
+  - systems
+  - embedded
+  - platform
+  - backend
+  - fullstack
+  - full stack
+
+exclude_keywords:
+  - intern
+  - internship
+  - junior
+  - new grad
+  - new-grad
+  - entry level
+  - sales engineer
+
+prefer_remote: true
+us_only: true
+locations_bias:
+  - Remote
+  - United States
+  - Demo City

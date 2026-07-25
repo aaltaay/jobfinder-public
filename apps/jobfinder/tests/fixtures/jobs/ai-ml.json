@@ -1,0 +1,12 @@
+{
+  "id": "job-ai-ml",
+  "title": "AI Applications Engineer",
+  "company": "Example AI Labs",
+  "description": "Requirements:\n- Required: experience building retrieval-augmented generation (RAG) systems with vector search.\n- Python required.\nResponsibilities:\n- Build LLM-powered services with rate-limited APIs.\nPreferred:\n- FastAPI experience is a plus.",
+  "terms": [
+    { "term": "RAG", "bucket": "must_have" },
+    { "term": "Python", "bucket": "must_have" },
+    { "term": "LLM", "bucket": "responsibility" },
+    { "term": "FastAPI", "bucket": "preferred" }
+  ]
+}

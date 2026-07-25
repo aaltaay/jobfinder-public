@@ -1,0 +1,36 @@
+{
+  "id": "{{AGENT_ID}}",
+  "name": "{{AGENT_ID}}",
+  "spec": ".cursor/agents/{{AGENT_ID}}.md",
+  "memory": ".cursor/agent-memory/{{AGENT_ID}}-memory.md",
+  "invoke_phrases": [
+    "{{PRIMARY_INVOKE}}",
+    "Improve the {{AGENT_ID}} agent — work the next backlog item"
+  ],
+  "dashboard": {
+    "type": "dedicated",
+    "canvas": "agent-{{AGENT_ID}}.canvas.tsx"
+  },
+  "continuity_rule": null,
+  "continuity_waiver": "Waiver pending domain continuity rule for {{AGENT_ID}}.",
+  "canonical_inputs": [
+    ".cursor/agent-memory/{{AGENT_ID}}-memory.md"
+  ],
+  "writable_paths": [
+    ".cursor/agents/{{AGENT_ID}}.md",
+    ".cursor/agent-memory/{{AGENT_ID}}-memory.md"
+  ],
+  "prohibited_actions": [
+    "commit_without_ask",
+    "edit_crm",
+    "auto_apply",
+    "overwrite_pgrst_schemas"
+  ],
+  "deterministic_checks": [],
+  "sibling_handoffs": {
+    "jobfinder-conductor": "integration / roadmap",
+    "jobfinder-tester": "verification gates",
+    "jobfinder-agent": "docs / constitution"
+  },
+  "domain": "{{DOMAIN}}"
+}

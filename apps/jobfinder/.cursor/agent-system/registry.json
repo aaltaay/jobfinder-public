@@ -1,0 +1,561 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-07-18",
+  "agents": [
+    {
+      "id": "jobfinder-conductor",
+      "name": "conductor",
+      "spec": ".cursor/agents/conductor.md",
+      "memory": ".cursor/agent-memory/conductor-memory.md",
+      "invoke_phrases": [
+        "Use conductor to plan and route this work",
+        "conductor, plan and route this work",
+        "Use the jobfinder-conductor to plan and route this work",
+        "Improve the conductor agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "home_section",
+        "canvas": "jobfinder-home.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "No dedicated continuity MDC yet; ROADMAP_STATUS.md + conductor memory are canonical.",
+      "canonical_inputs": [
+        "docs/ROADMAP_STATUS.md",
+        "docs/PARALLEL_MATRIX.md",
+        "workflows/build-v1.yaml",
+        ".cursor/agent-system/registry.json",
+        ".cursor/agent-memory/conductor-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/conductor.md",
+        ".cursor/agent-memory/conductor-memory.md",
+        "docs/ROADMAP_STATUS.md",
+        "docs/PARALLEL_MATRIX.md",
+        "workflows/build-v1.yaml",
+        ".cursor/rules/specialist-routing.mdc"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "implement_product_features",
+        "edit_src",
+        "edit_migrations",
+        "edit_ingest_fn",
+        "edit_collectors"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-database": "schema / RLS / PostgREST",
+        "jobfinder-ingest": "Edge Function ingest",
+        "jobfinder-frontend": "SPA UI",
+        "jobfinder-discovery": "collectors / schedule",
+        "jobfinder-agent": "docs / constitution",
+        "jobfinder-resume-writer": "structured r\u00e9sum\u00e9 / tailor EF",
+        "jobfinder-fit": "legacy catalog score.ts / ATS audit (frozen)",
+        "jobfinder-gatekeeper": "sole product Gatekeeper scoring (Luna + batch)",
+        "jobfinder-apply": "guided apply",
+        "jobfinder-tester": "verification before done"
+      },
+      "domain": "routing / parallel plans / integration / continuity (hub Conductor)"
+    },
+    {
+      "id": "jobfinder-agent",
+      "name": "jobfinder-agent",
+      "spec": ".cursor/agents/jobfinder-agent.md",
+      "memory": ".cursor/agent-memory/jobfinder-agent-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-agent to review documentation and contracts",
+        "Improve the jobfinder-agent agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-agent.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Docs continuity via AGENTS.md + ROADMAP_STATUS; no dedicated MDC yet.",
+      "canonical_inputs": [
+        "AGENTS.md",
+        "docs/SOURCE-PINS.md",
+        "docs/DESIGN_SYSTEM.md",
+        "docs/APPLE_HIG_APPLY.md",
+        "scale/AGENT_CREATION.md",
+        ".cursor/agent-memory/jobfinder-agent-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-agent.md",
+        ".cursor/agent-memory/jobfinder-agent-memory.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CHANGELOG.md",
+        "PROBLEM_LOG.md",
+        "docs/",
+        "scale/"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "edit_src",
+        "edit_migrations",
+        "edit_ingest_fn",
+        "edit_collectors"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-tester": "docs that claim verified behavior",
+        "conductor": "roadmap / parallel matrix changes"
+      },
+      "domain": "docs / constitution / contracts / design hygiene"
+    },
+    {
+      "id": "jobfinder-frontend",
+      "name": "jobfinder-frontend",
+      "spec": ".cursor/agents/jobfinder-frontend.md",
+      "memory": ".cursor/agent-memory/jobfinder-frontend-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-frontend subagent to implement UI",
+        "Improve the jobfinder-frontend agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-frontend.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "UI continuity via DESIGN_SYSTEM.md + APPLE_HIG_APPLY.md + frontend memory.",
+      "canonical_inputs": [
+        "docs/DESIGN_SYSTEM.md",
+        "docs/APPLE_HIG_APPLY.md",
+        "docs/ARCHITECTURE.md",
+        ".cursor/agent-memory/jobfinder-frontend-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-frontend.md",
+        ".cursor/agent-memory/jobfinder-frontend-memory.md",
+        "src/",
+        "tests/",
+        "index.html",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.json",
+        "tsconfig.app.json",
+        "tsconfig.node.json",
+        "components.json",
+        "vercel.json",
+        "public/"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "edit_migrations",
+        "edit_ingest_fn",
+        "edit_collectors",
+        "expose_service_role"
+      ],
+      "deterministic_checks": [
+        "npm test",
+        "npm run build"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-database": "schema field mismatches",
+        "jobfinder-ingest": "manual-add API contract",
+        "jobfinder-tester": "browser / build verification",
+        "conductor": "integration conflicts"
+      },
+      "domain": "Vite SPA / inbox / detail / filters"
+    },
+    {
+      "id": "jobfinder-discovery",
+      "name": "jobfinder-discovery",
+      "spec": ".cursor/agents/jobfinder-discovery.md",
+      "memory": ".cursor/agent-memory/jobfinder-discovery-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-discovery subagent for collectors",
+        "Improve the jobfinder-discovery agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-discovery.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Source health via SOURCE-PINS + discovery memory; no dedicated MDC yet.",
+      "canonical_inputs": [
+        "docs/INGESTION_CONTRACT.md",
+        "docs/SOURCE-PINS.md",
+        ".cursor/agent-memory/jobfinder-discovery-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-discovery.md",
+        ".cursor/agent-memory/jobfinder-discovery-memory.md",
+        "../../services/job-discovery/",
+        "../../.github/workflows/"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "production_linkedin_indeed_scrape",
+        "edit_src",
+        "edit_migrations",
+        "edit_ingest_fn"
+      ],
+      "deterministic_checks": [
+        "py -3 -m pytest ../../services/job-discovery/tests -q"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-ingest": "payload / auth / idempotency mismatches",
+        "jobfinder-tester": "collector + ingest integration checks",
+        "conductor": "schedule / wave planning"
+      },
+      "domain": "ATS collectors / GitHub Actions discovery schedule"
+    },
+    {
+      "id": "jobfinder-database",
+      "name": "jobfinder-database",
+      "spec": ".cursor/agents/jobfinder-database.md",
+      "memory": ".cursor/agent-memory/jobfinder-database-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-database subagent for schema and RLS",
+        "Improve the jobfinder-database agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-database.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Schema continuity via ARCHITECTURE.md + database memory; PostgREST rules in AGENTS.md.",
+      "canonical_inputs": [
+        "docs/ARCHITECTURE.md",
+        "AGENTS.md",
+        ".cursor/agent-memory/jobfinder-database-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-database.md",
+        ".cursor/agent-memory/jobfinder-database-memory.md",
+        "../../supabase/migrations/",
+        "../../supabase/config.toml"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "overwrite_pgrst_schemas",
+        "add_pgvector",
+        "edit_src",
+        "edit_ingest_fn",
+        "edit_collectors"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-ingest": "table/column contract for upserts",
+        "jobfinder-frontend": "generated types / field names",
+        "conductor": "exposure / advisor blockers"
+      },
+      "domain": "migrations / RLS / PostgREST exposure for schema_jobfinder"
+    },
+    {
+      "id": "jobfinder-ingest",
+      "name": "jobfinder-ingest",
+      "spec": ".cursor/agents/jobfinder-ingest.md",
+      "memory": ".cursor/agent-memory/jobfinder-ingest-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-ingest subagent for the Edge Function",
+        "Improve the jobfinder-ingest agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-ingest.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Ingest continuity via INGESTION_CONTRACT.md + ingest memory.",
+      "canonical_inputs": [
+        "docs/INGESTION_CONTRACT.md",
+        "docs/SCORING.md",
+        ".cursor/agent-memory/jobfinder-ingest-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-ingest.md",
+        ".cursor/agent-memory/jobfinder-ingest-memory.md",
+        "../../supabase/functions/job-ingest/"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "reset_user_status_on_reingest",
+        "edit_src",
+        "edit_migrations",
+        "edit_collectors"
+      ],
+      "deterministic_checks": [
+        "deno check ../../supabase/functions/job-ingest/index.ts"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-database": "missing columns / RLS blocking service role paths",
+        "jobfinder-discovery": "collector payload shape",
+        "jobfinder-frontend": "manual-add auth mode",
+        "jobfinder-tester": "idempotency / dedupe tests"
+      },
+      "domain": "job-ingest Edge Function / normalize / dedupe / score"
+    },
+    {
+      "id": "jobfinder-tester",
+      "name": "jobfinder-tester",
+      "spec": ".cursor/agents/jobfinder-tester.md",
+      "memory": ".cursor/agent-memory/jobfinder-tester-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-tester subagent to verify",
+        "Improve the jobfinder-tester agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-tester.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "No dedicated continuity MDC; routing via specialist-routing.mdc + tester memory/snapshot.",
+      "canonical_inputs": [
+        "PROBLEM_LOG.md",
+        ".cursor/agent-memory/jobfinder-tester-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-tester.md",
+        ".cursor/agent-memory/jobfinder-tester-memory.md"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "edit_product_code_unless_asked",
+        "swallow_failures"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci",
+        "npm run build"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-frontend": "UI failures needing product fix",
+        "jobfinder-ingest": "ingest / scoring failures",
+        "jobfinder-discovery": "collector failures",
+        "jobfinder-database": "RLS / schema failures",
+        "conductor": "wave / integration blockers"
+      },
+      "domain": "test / build / browser verification"
+    },
+    {
+      "id": "jobfinder-fit",
+      "name": "jobfinder-fit",
+      "spec": ".cursor/agents/jobfinder-fit.md",
+      "memory": ".cursor/agent-memory/jobfinder-fit-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-fit subagent to rate jobs against the resume",
+        "Improve the jobfinder-fit agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-fit.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Fit continuity via candidate_profile.yaml + SCORING.md + fit memory; catalog ranking FROZEN/NON-PRODUCT — Gatekeeper is sole scorer. R\u00e9sum\u00e9 HTML writing owned by jobfinder-resume-writer.",
+      "canonical_inputs": [
+        "config/resume.html",
+        "config/candidate_profile.yaml",
+        "docs/SCORING.md",
+        "docs/RESUME_QUALITY.md",
+        ".cursor/agent-memory/jobfinder-fit-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-fit.md",
+        ".cursor/agent-memory/jobfinder-fit-memory.md",
+        "config/candidate_profile.yaml",
+        "docs/SCORING.md",
+        "docs/RESUME_QUALITY.md",
+        "../../supabase/functions/job-ingest/score.ts",
+        "../../supabase/functions/jobfinder-rescore/score.ts"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "overwrite_pgrst_schemas",
+        "llm_score_in_edge"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci",
+        "py -3 -c \"from pathlib import Path; p=Path('config/candidate_profile.yaml'); assert p.is_file() and 'Jane Demo' in p.read_text(encoding='utf-8')\""
+      ],
+      "sibling_handoffs": {
+        "jobfinder-ingest": "deploy Edge Function / rescore batches",
+        "jobfinder-frontend": "fit-band badge / reason chips",
+        "jobfinder-discovery": "missing fields for fit signals",
+        "jobfinder-tester": "verify scores after rescore",
+        "jobfinder-agent": "docs / constitution",
+        "conductor": "integration / roadmap",
+        "jobfinder-resume-writer": "drafts to audit; never grade own output"
+      },
+      "domain": "legacy/frozen catalog score.ts + independent ATS/content audit rubrics (not product ranking; not r\u00e9sum\u00e9 HTML authorship)"
+    },
+    {
+      "id": "jobfinder-apply",
+      "name": "jobfinder-apply",
+      "spec": ".cursor/agents/jobfinder-apply.md",
+      "memory": ".cursor/agent-memory/jobfinder-apply-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-apply subagent for guided apply assist",
+        "Improve the jobfinder-apply agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-apply.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Guided apply continuity via config/apply_profile.yaml + GUIDED_APPLY.md + apply memory.",
+      "canonical_inputs": [
+        "config/apply_profile.yaml",
+        "docs/GUIDED_APPLY.md",
+        ".cursor/agent-memory/jobfinder-apply-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-apply.md",
+        ".cursor/agent-memory/jobfinder-apply-memory.md",
+        "config/apply_profile.yaml",
+        "docs/GUIDED_APPLY.md",
+        "../../scripts/guided_apply.mjs",
+        "src/lib/applyKit.ts",
+        "src/components/jobs/GuidedApplyPanel.tsx"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "click_submit",
+        "overwrite_pgrst_schemas"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci",
+        "py -3 -c \"from pathlib import Path; p=Path('config/apply_profile.yaml'); assert 'never_click_submit: true' in p.read_text(encoding='utf-8')\"",
+        "npm run build"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-fit": "fit band / resume scoring",
+        "jobfinder-frontend": "broader inbox UX",
+        "jobfinder-discovery": "broken application URLs",
+        "jobfinder-tester": "browser helper / UI verification",
+        "jobfinder-agent": "docs / constitution",
+        "conductor": "product scope / auto-submit requests"
+      },
+      "domain": "Guided apply assist: apply profile, propose fills, browser helper that never auto-submits"
+    },
+    {
+      "id": "jobfinder-resume-writer",
+      "name": "jobfinder-resume-writer",
+      "spec": ".cursor/agents/jobfinder-resume-writer.md",
+      "memory": ".cursor/agent-memory/jobfinder-resume-writer-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-resume-writer subagent to tailor or draft r\u00e9sum\u00e9s",
+        "Improve the jobfinder-resume-writer agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-resume-writer.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Resume writer continuity via docs/RESUME_SYSTEM.md + writer memory; no dedicated MDC yet.",
+      "canonical_inputs": [
+        ".cursor/agent-memory/jobfinder-resume-writer-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-resume-writer.md",
+        ".cursor/agent-memory/jobfinder-resume-writer-memory.md",
+        "config/resume.html",
+        "config/resume_writer/",
+        "../../supabase/functions/jobfinder-resume-tailor/",
+        "src/lib/resume/"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "overwrite_pgrst_schemas"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci",
+        "npm test -- tests/resumeSchema.test.ts tests/resumeProvenance.test.ts tests/resumeAtsAudit.test.ts",
+        "npm run test:exports"
+      ],
+      "sibling_handoffs": {
+        "jobfinder-tester": "verification gates",
+        "jobfinder-agent": "docs / constitution",
+        "conductor": "integration / roadmap",
+        "jobfinder-fit": "independent ATS/content audit",
+        "jobfinder-frontend": "Master/Generic/Tailor UI",
+        "jobfinder-database": "resume fleet schema"
+      },
+      "domain": "structured r\u00e9sum\u00e9 generation, tailoring prompts/contracts, and jobfinder-resume-tailor Edge Function"
+    },
+    {
+      "id": "jobfinder-gatekeeper",
+      "name": "jobfinder-gatekeeper",
+      "spec": ".cursor/agents/jobfinder-gatekeeper.md",
+      "memory": ".cursor/agent-memory/jobfinder-gatekeeper-memory.md",
+      "invoke_phrases": [
+        "Use the jobfinder-gatekeeper subagent for resume-to-JD Gatekeeper scoring",
+        "Improve the jobfinder-gatekeeper agent \u2014 work the next backlog item"
+      ],
+      "dashboard": {
+        "type": "dedicated",
+        "canvas": "agent-jobfinder-gatekeeper.canvas.tsx"
+      },
+      "continuity_rule": null,
+      "continuity_waiver": "Gatekeeper continuity via docs/GATEKEEPER.md + config/gatekeeper/ + gatekeeper memory; sole product scorer (Luna + async batch).",
+      "canonical_inputs": [
+        "docs/GATEKEEPER.md",
+        "config/gatekeeper/system_prompt.md",
+        ".cursor/agent-memory/jobfinder-gatekeeper-memory.md"
+      ],
+      "writable_paths": [
+        ".cursor/agents/jobfinder-gatekeeper.md",
+        ".cursor/agent-memory/jobfinder-gatekeeper-memory.md",
+        "docs/GATEKEEPER.md",
+        "config/gatekeeper/",
+        "../../supabase/functions/jobfinder-gatekeeper/",
+        "../../supabase/functions/jobfinder-gatekeeper-batch/",
+        "../../scripts/deploy_jobfinder_gatekeeper.mjs",
+        "../../scripts/deploy_jobfinder_gatekeeper_batch.mjs"
+      ],
+      "prohibited_actions": [
+        "commit_without_ask",
+        "edit_crm",
+        "auto_apply",
+        "overwrite_pgrst_schemas",
+        "llm_score_in_ingest",
+        "edit_catalog_score_ts",
+        "edit_candidate_profile"
+      ],
+      "deterministic_checks": [
+        "py -3 tools/agent_contract.py --ci",
+        "py -3 -c \"from pathlib import Path; t=Path('docs/GATEKEEPER.md').read_text(encoding='utf-8'); assert 'Hard gates' in t and 'PRIORITY APPLY' in t\"",
+        "py -3 -c \"from pathlib import Path; t=Path('config/gatekeeper/system_prompt.md').read_text(encoding='utf-8'); assert 'STAGE 1' in t and 'PRIORITY APPLY' in t\""
+      ],
+      "sibling_handoffs": {
+        "conductor": "integration / roadmap / sole-scorer waves",
+        "jobfinder-fit": "legacy catalog score.ts frozen; not product ranking",
+        "jobfinder-resume-writer": "tailoring drafts after Gatekeeper plan",
+        "jobfinder-apply": "guided apply consuming Gatekeeper verdict",
+        "jobfinder-frontend": "inbox/detail Gatekeeper score UI",
+        "jobfinder-database": "persist gatekeeper_* schema",
+        "jobfinder-ingest": "never LLM-score in webhook; leave unscored for batch",
+        "jobfinder-discovery": "invoke batch after discovery + hourly cron",
+        "jobfinder-tester": "verification gates",
+        "jobfinder-agent": "docs / constitution roster"
+      },
+      "domain": "sole product Gatekeeper scoring (Luna JWT + async batch; hard gates + weighted fit); not catalog ingest ranking"
+    }
+  ]
+}

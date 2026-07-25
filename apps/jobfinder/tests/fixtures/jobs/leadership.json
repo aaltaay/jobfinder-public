@@ -1,0 +1,12 @@
+{
+  "id": "job-leadership",
+  "title": "Engineering Team Lead",
+  "company": "Example Systems Group",
+  "description": "Minimum Qualifications:\n- Required: prior experience as de facto architect or tech lead for a software team.\n- Experience mentoring engineers and collaborating with globally distributed teams.\nResponsibilities:\n- Own system architecture decisions and drive requirements gathering with customers.\nPreferred:\n- Experience with automation tooling is a plus.",
+  "terms": [
+    { "term": "architect", "bucket": "must_have" },
+    { "term": "mentor", "bucket": "must_have" },
+    { "term": "requirements", "bucket": "responsibility" },
+    { "term": "automation", "bucket": "preferred" }
+  ]
+}

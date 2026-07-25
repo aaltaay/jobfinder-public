@@ -1,0 +1,297 @@
+# Curated remote-friendly employer boards. Collectors fetch each board once
+# and filter locally against profile.yaml — never one request per keyword.
+
+greenhouse:
+  - stripe
+  - airbnb
+  - dropbox
+  - gitlab
+  - cloudflare
+  - datadog
+  - hashicorp
+  - figma
+  - notion
+  - discord
+  - reddit
+  - pinterest
+  - roblox
+  - duolingo
+  - hubspot
+  - twilio
+  - okta
+  - elastic
+  - mongodb
+  - snowflake
+  - databricks
+  - palantir
+  - anthropic
+  - openai
+  - vercel
+  - supabase
+  - linear
+  - ramp
+  - brex
+  - coinbase
+  - square
+  - block
+  - rivian
+  - cruise
+  - anduril
+  - spacex
+  - nvidia
+  - amd
+  - intel
+  - qualcomm
+  - cisco
+  - juniper
+  - redis
+  - confluent
+  - clickhouse
+  - temporal
+  - launchdarkly
+  - sentry
+  - pagerduty
+  - atlassian
+  # Expansion batch (verified via curl 2026-07-18):
+  - asana
+  - affirm
+  - instacart
+  - lyft
+  - robinhood
+  - chime
+  - gusto
+  - webflow
+  - calendly
+  - airtable
+  - postman
+  - circleci
+  - fastly
+  - netlify
+  - samsara
+  - carta
+  - flexport
+  - faire
+  - glossier
+  - bombas
+  - oura
+  - medium
+  - newrelic
+  - checkr
+  - lattice
+  - smartsheet
+  - greenhouse
+  - doordashusa
+  - remote
+  - turing
+  - upwork
+  - stitchfix
+  - classpass
+  - calm
+  - waymo
+  - nuro
+  - kodiak
+  - 6sense
+  - intercom
+  - squarespace
+  - zuora
+  - adyen
+  - marqeta
+  - alloy
+  - forter
+  - riskified
+  - arkoselabs
+  - veracode
+  - dashlane
+  - beyondidentity
+  - yubico
+  - cybereason
+  - tanium
+  - epicgames
+  - riotgames
+  - scopely
+  - nintendo
+  - bungie
+  - naughtydog
+  - 2k
+  - 10xgenomics
+  - natera
+  - veracyte
+  - ginkgobioworks
+  - freenome
+  - cerebral
+  - talkspace
+  - forward
+  - n26
+  - monzo
+  - nubank
+  - sezzle
+  - melio
+  - found
+  - justworks
+  - karat
+  - hackerrank
+  - astranis
+  - capellaspace
+  - rocketlab
+  - supernal
+  - wrike
+
+lever:
+  - netflix
+  - shopify
+  - canva
+  - plaid
+  - segment
+  - twilio
+  - eventbrite
+  - mixpanel
+  - postmates
+  - fingerfood
+  - palantirtechnologies
+  - continuum
+  - wealthsimple
+  - ramp
+  - scaleai
+  # Expansion batch (verified via curl 2026-07-18):
+  - neon
+  - hostinger
+  - kinsta
+  - scaleway
+  - alltrails
+
+ashby:
+  - openai
+  - anthropic
+  - notion
+  - linear
+  - ramp
+  - rippling
+  - airtable
+  - retool
+  - vercel
+  - supabase
+  - cursor
+  - perplexity
+  - hectored
+  - mercury
+  - browseai
+  # Expansion batch (verified via curl 2026-07-18):
+  - deel
+  - webflow
+  - replit
+  - render
+  - tempo
+  - runway
+  - suno
+  - elevenlabs
+  - pika
+  - cohere
+  - modal
+  - baseten
+  - anyscale
+  - langchain
+  - pinecone
+  - weaviate
+  - harvey
+  - sierra
+  - decagon
+  - attio
+  - close
+  - salesloft
+  - kraken
+  - circle
+  - alchemy
+  - dune
+  - blockdaemon
+  - opensea
+  - paradigm
+  - a16z
+  - sequoia
+  - insight-partners
+  - lightspeed
+  - warp
+  - raycast
+  - superhuman
+  - fathom
+  - synthesia
+  - hedra
+  - tldraw
+
+# SmartRecruiters: public no-auth `postings` endpoint; unknown company slugs
+# resolve to 200 + empty content (no board-error path needed), so entries are
+# safe to include speculatively. company identifiers verified via curl.
+smartrecruiters:
+  - visa
+  - smartrecruiters
+
+# Workable: public `?details=true` widget endpoint. Account slugs verified via
+# curl to have real, current job postings.
+workable:
+  - allucent
+  - walletconnect
+  - huggingface
+  - doist
+  - typeform
+
+# Recruitee: public `/api/offers/` endpoint. Recruitee skews EU/on-site, so
+# yield against a US-only profile is expected to be low — kept for coverage.
+recruitee:
+  - veocareers
+  - blocktech
+  - justrussel
+
+# Teamtailor: NOT the documented JSON:API (`api.teamtailor.com/v1/jobs`) which
+# requires a per-tenant API key — instead the no-auth public `jobs.json`
+# JSON Feed every career site exposes (see collectors/teamtailor.py). Subdomains
+# verified via curl.
+teamtailor:
+  - polestar
+  - storytel
+  - fishbrain
+  - doconomy
+  - podimo
+
+# Workday CXS: POST-only public API, hard-capped at 20 results/page. Every
+# {tenant, wd, site} triple below was verified via a live curl POST — do not
+# add unverified triples (wrong `wd` datacenter number or `site` name returns
+# 422, not a graceful empty list).
+workday:
+  - tenant: nvidia
+    wd: wd5
+    site: NVIDIAExternalCareerSite
+  - tenant: salesforce
+    wd: wd12
+    site: External_Career_Site
+  - tenant: capitalone
+    wd: wd12
+    site: Capital_One
+  - tenant: target
+    wd: wd5
+    site: targetcareers
+  - tenant: pfizer
+    wd: wd1
+    site: PfizerCareers
+  - tenant: comcast
+    wd: wd5
+    site: Comcast_Careers
+  - tenant: workday
+    wd: wd5
+    site: Workday
+
+feeds:
+  remoteok: true
+  remotive: true
+  arbeitnow: true
+  themuse: true
+  jobicy: true
+  # Adzuna requires ADZUNA_APP_ID / ADZUNA_APP_KEY (not yet provisioned — see
+  # docs/SOURCE-PINS.md). The collector skips gracefully when unset, so this
+  # toggle can stay on.
+  adzuna: true
+  # HN "Who is hiring?" is freeform text, not a structured job API — kept
+  # experimental/opt-in like JobSpy until the extraction heuristics prove out.
+  hn_whoishiring: false
+
+schedule:
+  ats_every_run: true
+  feeds_once_daily: true

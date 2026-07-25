@@ -1,0 +1,29 @@
+{
+  "page": 0,
+  "page_count": 1,
+  "total": 2,
+  "results": [
+    {
+      "name": "Senior Software Engineer",
+      "contents": "Build TypeScript and React systems.",
+      "publication_date": "2026-07-01T00:00:00Z",
+      "locations": [{ "name": "Remote - United States" }],
+      "categories": [{ "name": "Software Engineering" }],
+      "levels": [{ "name": "Senior Level", "short_name": "senior" }],
+      "refs": { "landing_page": "https://www.themuse.com/jobs/acme/senior-software-engineer" },
+      "company": { "name": "Acme", "short_name": "acme" },
+      "id": 1001
+    },
+    {
+      "name": "Junior Marketing Intern",
+      "contents": "Intern role",
+      "publication_date": "2026-07-01T00:00:00Z",
+      "locations": [{ "name": "New York, NY" }],
+      "categories": [{ "name": "Marketing" }],
+      "levels": [{ "name": "Entry Level", "short_name": "entry" }],
+      "refs": { "landing_page": "https://www.themuse.com/jobs/acme/junior-marketing-intern" },
+      "company": { "name": "Acme", "short_name": "acme" },
+      "id": 1002
+    }
+  ]
+}

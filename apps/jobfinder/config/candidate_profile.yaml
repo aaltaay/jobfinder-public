@@ -1,0 +1,68 @@
+# LEGACY / NON-PRODUCT — keyword mirror for offline catalog experiments only.
+# Product ranking: docs/GATEKEEPER.md (Gatekeeper → gatekeeper_score).
+# Demo profile for portfolio / public extract.
+
+identity:
+  name: Jane Demo
+  location: Demo City, TX
+  email: jane.demo@example.com
+  years_experience: 7
+  seniority_signal: senior_ic
+
+summary: >
+  Full-stack software engineer with 7+ years shipping product software —
+  backend services, React frontends, and platform tooling. Led internal
+  products from concept to adoption and builds AI-assisted workflows.
+
+target_titles:
+  - Senior Software Engineer
+  - Staff Software Engineer
+  - Platform Engineer
+  - Full Stack Engineer
+
+strong_tech:
+  - python
+  - typescript
+  - react
+  - fastapi
+  - supabase
+  - postgres
+  - docker
+  - ci/cd
+
+adjacent_tech:
+  - node.js
+  - vite
+  - llm
+  - embeddings
+  - github actions
+  - kubernetes
+
+domain_signals:
+  - saas
+  - platform engineering
+  - developer tools
+
+location_preference:
+  home_base: Demo City, TX
+  prefer:
+    - remote US
+  accept_nearby_onsite: false
+
+experience_band:
+  ideal_min_years: 5
+  ideal_max_years: 12
+  own_years: 7
+
+signature_strengths:
+  - full-stack product delivery
+  - API design
+  - CI/CD pipelines
+  - platform/provisioning pipelines
+
+red_flags:
+  - intern
+  - internship
+  - junior
+  - new grad
+  - entry level

@@ -1,0 +1,204 @@
+# Job Finder build-v1 — deterministic waves (Conductor-inspired)
+# Cursor still executes via Task/subagents; this file is SoT for who may run together.
+# Paths relative to apps/jobfinder unless noted.
+
+name: jobfinder-build-v1
+version: 1
+product_root: apps/jobfinder
+
+defaults:
+  failure_mode: fail_fast
+  packet_template: scale/templates/packet.md
+
+waves:
+  - id: Wave-A
+    name: Contracts and schema
+    failure_mode: fail_fast
+    parallel:
+      - agent: jobfinder-database
+        objective: Create schema_jobfinder migration, RLS, indexes, safe PostgREST exposure
+        owned_paths:
+          - ../../supabase/migrations/
+        notes: Only *jobfinder* migration files; never wipe pgrst.db_schemas
+      - agent: jobfinder-agent
+        objective: Freeze and keep docs/constitution aligned with contracts
+        owned_paths:
+          - AGENTS.md
+          - docs/
+          - scale/
+    gate:
+      - py -3 tools/agent_contract.py --ci
+    next: Wave-B
+
+  - id: Wave-B
+    name: Product implementation
+    failure_mode: fail_fast
+    requires:
+      - Wave-A
+      - frozen_contracts:
+          - docs/ARCHITECTURE.md
+          - docs/INGESTION_CONTRACT.md
+          - docs/SCORING.md
+          - docs/DESIGN_SYSTEM.md
+    parallel:
+      - agent: jobfinder-ingest
+        objective: Implement secure idempotent job-ingest Edge Function
+        owned_paths:
+          - ../../supabase/functions/job-ingest/
+      - agent: jobfinder-frontend
+        objective: Build authenticated inbox, detail, filters, status tracking
+        owned_paths:
+          - src/
+          - tests/
+      - agent: jobfinder-discovery
+        objective: Build ATS collectors posting versioned JSON to job-ingest
+        owned_paths:
+          - ../../services/job-discovery/
+    next: Wave-C
+
+  - id: Wave-C
+    name: Verification
+    failure_mode: fail_fast
+    requires:
+      - Wave-B
+    serial:
+      - agent: jobfinder-tester
+        objective: Run unit/build/browser acceptance; never claim done without evidence
+        owned_paths:
+          - .cursor/agents/jobfinder-tester.md
+          - .cursor/agent-memory/jobfinder-tester-memory.md
+    next: null
+
+  - id: Wave-G-A
+    name: Gatekeeper contracts
+    failure_mode: fail_fast
+    parallel:
+      - agent: jobfinder-gatekeeper
+        objective: Own docs/GATEKEEPER.md + config/gatekeeper prompt SoT
+        owned_paths:
+          - docs/GATEKEEPER.md
+          - config/gatekeeper/
+          - ../../supabase/functions/jobfinder-gatekeeper/
+      - agent: jobfinder-agent
+        objective: Roster Gatekeeper in AGENTS.md + CHANGELOG; constitution two-layer note
+        owned_paths:
+          - AGENTS.md
+          - CHANGELOG.md
+      - agent: jobfinder-fit
+        objective: Cross-ref SCORING.md to Gatekeeper; keep ingest deterministic
+        owned_paths:
+          - docs/SCORING.md
+    gate:
+      - py -3 tools/agent_contract.py --ci
+    next: Wave-G-B
+
+  - id: Wave-G-B
+    name: Gatekeeper runtime
+    failure_mode: fail_fast
+    requires:
+      - Wave-G-A
+      - frozen_contracts:
+          - docs/GATEKEEPER.md
+          - docs/SCORING.md
+    parallel:
+      - agent: jobfinder-gatekeeper
+        objective: Implement on-demand jobfinder-gatekeeper Edge Function
+        owned_paths:
+          - ../../supabase/functions/jobfinder-gatekeeper/
+      - agent: jobfinder-frontend
+        objective: Job detail Gatekeeper score action + result UI
+        owned_paths:
+          - src/
+    next: Wave-G-C
+
+  - id: Wave-G-C
+    name: Gatekeeper verification
+    failure_mode: fail_fast
+    requires:
+      - Wave-G-B
+    serial:
+      - agent: jobfinder-tester
+        objective: Verify Gatekeeper score path and UI; never claim done without evidence
+        owned_paths:
+          - .cursor/agents/jobfinder-tester.md
+          - .cursor/agent-memory/jobfinder-tester-memory.md
+    next: null
+
+  - id: Wave-S-A
+    name: Gatekeeper sole-scorer contracts and schema
+    failure_mode: fail_fast
+    parallel:
+      - agent: jobfinder-agent
+        objective: Constitution sole scorer — AGENTS.md + CHANGELOG; cross-link Gatekeeper
+        owned_paths:
+          - AGENTS.md
+          - CHANGELOG.md
+        notes: Do not rewrite docs/SCORING.md (fit) or docs/GATEKEEPER.md (gatekeeper); parent may edit in parallel — skip if already correct
+      - agent: jobfinder-database
+        objective: Apply gatekeeper_* columns on user_job_state + index
+        owned_paths:
+          - ../../supabase/migrations/
+        notes: Migration file may already exist — verify then apply to your-supabase-project-ref; no pgvector
+      - agent: jobfinder-fit
+        objective: Freeze catalog ranking as non-product; SCORING.md sole-scorer SoT
+        owned_paths:
+          - docs/SCORING.md
+          - config/candidate_profile.yaml
+          - ../../supabase/functions/job-ingest/score.ts
+          - ../../supabase/functions/jobfinder-rescore/score.ts
+    gate:
+      - py -3 tools/agent_contract.py --ci
+    next: Wave-S-B
+
+  - id: Wave-S-B
+    name: Gatekeeper sole-scorer runtime
+    failure_mode: fail_fast
+    requires:
+      - Wave-S-A
+      - frozen_contracts:
+          - docs/GATEKEEPER.md
+          - docs/SCORING.md
+          - AGENTS.md
+    parallel:
+      - agent: jobfinder-gatekeeper
+        objective: Luna EF + persist + jobfinder-gatekeeper-batch worker
+        owned_paths:
+          - docs/GATEKEEPER.md
+          - config/gatekeeper/
+          - ../../supabase/functions/jobfinder-gatekeeper/
+          - ../../supabase/functions/jobfinder-gatekeeper-batch/
+      - agent: jobfinder-ingest
+        objective: Stop product match_score writes; leave gatekeeper columns null for worker
+        owned_paths:
+          - ../../supabase/functions/job-ingest/
+      - agent: jobfinder-frontend
+        objective: Inbox/detail/apply use gatekeeper_score/verdict only
+        owned_paths:
+          - src/
+          - tests/
+      - agent: jobfinder-discovery
+        objective: Invoke batch after discovery GHA + hourly cron workflow
+        owned_paths:
+          - ../../.github/workflows/
+    next: Wave-S-C
+
+  - id: Wave-S-C
+    name: Gatekeeper sole-scorer verification
+    failure_mode: fail_fast
+    requires:
+      - Wave-S-B
+    serial:
+      - agent: jobfinder-tester
+        objective: Verify sole scorer — sort, unscored→scored, no 0–100 catalog UI
+        owned_paths:
+          - .cursor/agents/jobfinder-tester.md
+          - .cursor/agent-memory/jobfinder-tester-memory.md
+    next: null
+
+conductor:
+  agent: conductor
+  responsibilities:
+    - issue packets per specialist
+    - enforce matrix (no freestyle peers)
+    - serialize docs/ROADMAP_STATUS.md updates
+    - integrate results and hand off to Wave-C before done claims

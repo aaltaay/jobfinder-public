@@ -1,0 +1,35 @@
+{
+  "name": "Acme",
+  "description": null,
+  "jobs": [
+    {
+      "title": "Senior Software Engineer",
+      "shortcode": "ED0D23EF43",
+      "employment_type": "Full-time",
+      "telecommuting": true,
+      "department": "Engineering",
+      "url": "https://apply.workable.com/j/ED0D23EF43",
+      "shortlink": "https://apply.workable.com/j/ED0D23EF43",
+      "application_url": "https://apply.workable.com/j/ED0D23EF43/apply",
+      "published_on": "2026-07-09",
+      "created_at": "2025-11-13",
+      "country": "United States",
+      "city": "Remote",
+      "state": "",
+      "description": "Build TypeScript and React systems."
+    },
+    {
+      "title": "Junior Marketing Intern",
+      "shortcode": "AB12CD34",
+      "employment_type": "Internship",
+      "telecommuting": false,
+      "department": "Marketing",
+      "url": "https://apply.workable.com/j/AB12CD34",
+      "shortlink": "https://apply.workable.com/j/AB12CD34",
+      "application_url": "https://apply.workable.com/j/AB12CD34/apply",
+      "country": "United States",
+      "city": "New York",
+      "description": "Intern role"
+    }
+  ]
+}

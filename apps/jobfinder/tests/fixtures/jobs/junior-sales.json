@@ -1,0 +1,11 @@
+{
+  "id": "job-junior-sales",
+  "title": "Junior Sales Development Representative",
+  "company": "Fake Sales Co",
+  "description": "Cold call prospects, hit quota, Salesforce CRM, closing deals. No engineering required.",
+  "terms": [
+    { "term": "salesforce", "bucket": "must_have" },
+    { "term": "quota", "bucket": "must_have" }
+  ],
+  "negative": true
+}

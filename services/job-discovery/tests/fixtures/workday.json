@@ -1,0 +1,19 @@
+{
+  "total": 2,
+  "jobPostings": [
+    {
+      "title": "Senior Software Engineer",
+      "externalPath": "/job/US-CA-Remote/Senior-Software-Engineer_JR1234567",
+      "locationsText": "Remote, US",
+      "postedOn": "Posted Today",
+      "bulletFields": ["JR1234567"]
+    },
+    {
+      "title": "Junior Marketing Intern",
+      "externalPath": "/job/US-NY-New-York/Junior-Marketing-Intern_JR7654321",
+      "locationsText": "US, NY, New York",
+      "postedOn": "Posted Today",
+      "bulletFields": ["JR7654321"]
+    }
+  ]
+}

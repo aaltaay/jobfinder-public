@@ -1,0 +1,18 @@
+{
+  "id": 48747976,
+  "title": "Ask HN: Who is hiring? (July 2026)",
+  "children": [
+    {
+      "id": 48747987,
+      "author": "acme_hn",
+      "created_at": "2026-07-01T15:05:00Z",
+      "text": "Acme | Remote (US) | Senior Software Engineer | Full-time<p>We build TypeScript and React systems and are hiring a senior software engineer. Email jobs@acme.example to apply."
+    },
+    {
+      "id": 48747988,
+      "author": "deadposter",
+      "created_at": "2026-07-01T15:06:00Z",
+      "text": null
+    }
+  ]
+}

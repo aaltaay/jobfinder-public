@@ -1,0 +1,43 @@
+---
+description: Route Job Finder work to specialist subagents via the agent registry
+alwaysApply: true
+---
+
+# Specialist routing (Job Finder)
+
+When a task clearly belongs to a Job Finder specialist, prefer that subagent over general-purpose. Wiring metadata lives in `.cursor/agent-system/registry.json` — do not duplicate full agent prompts here.
+
+**Default:** Job Finder feature/plan/integration work → `conductor` (“Use the conductor to plan and route this work”).
+
+## Defaults
+
+| Need | Agent | Notes |
+|------|-------|-------|
+| Plan, parallel waves, integrate, roadmap | `conductor` | Does not implement features |
+| Docs, constitution, contracts, design system prose | `jobfinder-agent` | Wave A peer with database |
+| Vite SPA / inbox UI | `jobfinder-frontend` | Wave B |
+| Collectors / Actions schedule | `jobfinder-discovery` | Wave B; public ATS only |
+| Migrations / RLS / PostgREST exposure | `jobfinder-database` | Wave A; never wipe pgrst list; no pgvector |
+| `job-ingest` Edge Function | `jobfinder-ingest` | Wave B |
+| Structured résumé / tailor drafts / provenance | `jobfinder-resume-writer` | Owns `src/lib/resume/` + tailor EF |
+| Fit ratings / independent ATS audit rubrics | `jobfinder-fit` | Legacy/frozen catalog `score.ts` + YAML; **not** product ranking |
+| Gatekeeper sole product scorer | `jobfinder-gatekeeper` | Luna (`gpt-5.6-luna`); JWT score + batch worker; persist `gatekeeper_*`; never sync ingest hot path |
+| Guided apply / propose fills / browser helper | `jobfinder-apply` | Never clicks Submit; human-in-the-loop |
+| Verify / build / browser | `jobfinder-tester` | Wave C; before “done” |
+| Create a new agent | follow `scale/AGENT_CREATION.md` | via `create-agent.mdc` |
+
+## Invoke
+
+Use each agent's registered phrases from the registry (also under **Invoke phrases** in the spec).
+
+## Lifecycle
+
+Every Job Finder specialist report must end with:
+
+```text
+**Lifecycle:** memory=unchanged|changed | promotion=none|<what> | dashboard=clean|refresh-required | handoff=none|<sibling|conductor>
+```
+
+## Ops
+
+See `docs/agent-operations.md`. Validate with `py -3 tools/agent_contract.py --ci`. Parallel matrix: `docs/PARALLEL_MATRIX.md`.

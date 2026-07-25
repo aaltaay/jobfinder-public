@@ -1,0 +1,26 @@
+{
+  "listing_id": "00000000-0000-4000-8000-000000000001",
+  "revision_id": "00000000-0000-4000-8000-000000000002",
+  "document_id": "00000000-0000-4000-8000-000000000003",
+  "label": "Principal Software Engineer \u00b7 Platform Team \u00b7 Example Corp \u00b7 2026-07-19 20:05",
+  "company": "Example Corp",
+  "title": "Principal Software Engineer \u00b7 Platform Team",
+  "created_at": "2026-07-19T20:05:20.9114+00:00",
+  "status": "superseded",
+  "revision_source": "tailor",
+  "source": "db",
+  "project_ref": "your-supabase-project-ref",
+  "schema": "schema_jobfinder",
+  "table": "resume_document_revisions",
+  "captured_at": "2026-07-19T20:37:47Z",
+  "redactions": [
+    "identity.phone",
+    "identity.email"
+  ],
+  "note": "OP-0: synthetic overflow fixture document_json (no experience edits). Under shipped/HEAD PDF packing (pad 40/48, font 10.5, wrap=false roles) measures 2 LETTER pages; densify packing in working tree currently fits 1 page. Compose fix = OP-B.",
+  "page_counts_at_capture": {
+    "shipped_baseline_packing": 2,
+    "densify_normal": 1,
+    "densify_tight": 1
+  }
+}

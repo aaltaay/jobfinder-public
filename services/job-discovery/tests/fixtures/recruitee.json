@@ -1,0 +1,33 @@
+{
+  "offers": [
+    {
+      "id": 2680629,
+      "title": "Senior Software Engineer",
+      "slug": "senior-software-engineer",
+      "careers_url": "https://acme.recruitee.com/o/senior-software-engineer",
+      "description": "Build TypeScript and React systems.",
+      "company_name": "Acme",
+      "city": "Remote",
+      "country": "United States",
+      "remote": true,
+      "hybrid": false,
+      "on_site": false,
+      "employment_type_code": "fulltime_permanent",
+      "updated_at": "2026-07-17 07:19:20 UTC"
+    },
+    {
+      "id": 2680630,
+      "title": "Junior Marketing Intern",
+      "slug": "junior-marketing-intern",
+      "careers_url": "https://acme.recruitee.com/o/junior-marketing-intern",
+      "description": "Intern role",
+      "company_name": "Acme",
+      "city": "New York",
+      "country": "United States",
+      "remote": false,
+      "hybrid": false,
+      "on_site": true,
+      "employment_type_code": "internship"
+    }
+  ]
+}

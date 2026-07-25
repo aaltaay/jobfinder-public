@@ -1,0 +1,11 @@
+{
+  "id": "job-weak-fit-marketing",
+  "title": "Content Marketing Manager",
+  "company": "Example Marketing Co",
+  "description": "Own our content calendar, write blog posts and social copy, run email campaigns in HubSpot, and report on marketing funnel metrics.",
+  "terms": [
+    { "term": "HubSpot", "bucket": "must_have" },
+    { "term": "content calendar", "bucket": "must_have" }
+  ],
+  "negative": true
+}

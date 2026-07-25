@@ -1,0 +1,90 @@
+{
+  "started_at": "2026-07-18T04:47:49.559997+00:00",
+  "finished_at": "2026-07-18T04:50:30.354310+00:00",
+  "jobs_matched": 282,
+  "boards_attempted": 10,
+  "source_failures": 1,
+  "errors_sample": [
+    "anthropic: 404 for https://api.ashbyhq.com/posting-api/job-board/anthropic?includeCompensation=true"
+  ],
+  "ingest": {
+    "success": true,
+    "upserted": 282,
+    "received": 282,
+    "errors": [],
+    "raw": {
+      "success": true,
+      "schema_version": 1,
+      "received": 7,
+      "upserted": 7,
+      "skipped": 0,
+      "errors": [],
+      "discovery_run_id": "63869f00-5101-467d-b761-e886c5de7df8",
+      "batch_id": "discovery-df075b4d93b5-11"
+    }
+  },
+  "per_source": [
+    {
+      "source": "greenhouse",
+      "board": "gitlab",
+      "count": 75,
+      "errors": []
+    },
+    {
+      "source": "greenhouse",
+      "board": "cloudflare",
+      "count": 0,
+      "errors": []
+    },
+    {
+      "source": "greenhouse",
+      "board": "figma",
+      "count": 33,
+      "errors": []
+    },
+    {
+      "source": "greenhouse",
+      "board": "airbnb",
+      "count": 58,
+      "errors": []
+    },
+    {
+      "source": "greenhouse",
+      "board": "stripe",
+      "count": 5,
+      "errors": []
+    },
+    {
+      "source": "lever",
+      "board": "netflix",
+      "count": 0,
+      "errors": []
+    },
+    {
+      "source": "ashby",
+      "board": "openai",
+      "count": 98,
+      "errors": []
+    },
+    {
+      "source": "ashby",
+      "board": "anthropic",
+      "count": 0,
+      "errors": [
+        "anthropic: 404 for https://api.ashbyhq.com/posting-api/job-board/anthropic?includeCompensation=true"
+      ]
+    },
+    {
+      "source": "remoteok",
+      "board": "remoteok",
+      "count": 1,
+      "errors": []
+    },
+    {
+      "source": "remotive",
+      "board": "remotive",
+      "count": 12,
+      "errors": []
+    }
+  ]
+}

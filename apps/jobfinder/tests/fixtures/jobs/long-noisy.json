@@ -1,0 +1,12 @@
+{
+  "id": "job-long-noisy",
+  "title": "Senior Backend Engineer",
+  "company": "Example Noisy Co",
+  "description": "About us: Example Noisy Co is a fast-growing company on a mission to change the world, one API call at a time. We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, disability status, protected veteran status, or any other characteristic protected by law.\n\nBenefits: We offer a competitive salary range, full health, dental, and vision coverage, 401(k) with matching, generous paid time off, and remote-friendly culture. Background check and E-Verify required after offer.\n\nRequirements:\n- Required: 5+ years building backend APIs and distributed systems in Python.\n- SQL and database design experience required.\nResponsibilities:\n- Own CI/CD pipelines and release engineering for the platform team.\n- Collaborate with globally distributed engineering teams on system architecture.\nPreferred:\n- Docker and cloud migration experience is a plus.\n\nEqual Opportunity: We are committed to building a diverse, equitable, and inclusive workplace. Reasonable accommodation is available upon request. This is an at-will employment position. Application deadline: rolling.",
+  "terms": [
+    { "term": "Python", "bucket": "must_have" },
+    { "term": "SQL", "bucket": "must_have" },
+    { "term": "CI/CD", "bucket": "responsibility" },
+    { "term": "Docker", "bucket": "preferred" }
+  ]
+}

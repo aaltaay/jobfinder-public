@@ -1,0 +1,36 @@
+{
+  "offset": 0,
+  "limit": 100,
+  "totalFound": 2,
+  "content": [
+    {
+      "id": "744000133907678",
+      "name": "Senior Software Engineer",
+      "company": { "identifier": "Acme", "name": "Acme" },
+      "location": {
+        "city": "Austin",
+        "region": "TX",
+        "country": "us",
+        "remote": false,
+        "hybrid": false,
+        "fullLocation": "Austin, TX, United States"
+      },
+      "typeOfEmployment": { "id": "permanent", "label": "Full-time" },
+      "releasedDate": "2026-06-24T10:00:11.853Z"
+    },
+    {
+      "id": "744000129971988",
+      "name": "Junior Marketing Intern",
+      "company": { "identifier": "Acme", "name": "Acme" },
+      "location": {
+        "city": "Bengaluru",
+        "country": "in",
+        "remote": false,
+        "hybrid": false,
+        "fullLocation": "Bengaluru, India"
+      },
+      "typeOfEmployment": { "id": "internship", "label": "Internship" },
+      "releasedDate": "2026-06-03T11:08:12.368Z"
+    }
+  ]
+}
